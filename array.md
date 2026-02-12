@@ -139,3 +139,29 @@
             return final_ans;
         }
     };
+
+#### approach 2:
+
+'''cpp
+
+    class Solution {
+    public:
+        string longestCommonPrefix(vector<string>& strs) {
+        sort(strs.begin(),strs.end());
+
+        string first_element=strs[0];
+        string last_element=strs[strs.size()-1];
+
+        
+        int length=min(first_element.length(),last_element.length());
+        string prefix="";
+        for (int i=0;i<length;i++){
+                if(first_element[i]==last_element[i]){
+                    prefix+=first_element[i];
+                }else{
+                    break;
+                }
+        }
+        return prefix;
+        }
+    };
