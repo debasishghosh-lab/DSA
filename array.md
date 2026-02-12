@@ -99,3 +99,43 @@
                     }
                 }
         };
+
+
+### 5.Longest Common Prefix
+
+#### Write a function to find the longest common prefix string amongst an array of strings.
+
+#### If there is no common prefix, return an empty string "".
+
+#### Example:
+    - Input: strs = ["flower","flow","flight"]
+    - Output: "fl"
+
+#### code:
+
+#### approach 1:
+
+'''cpp
+
+    class Solution {
+    public:
+        string longestCommonPrefix(vector<string>& strs) {
+            string first=strs[0];
+            string final_ans=strs[0];
+            for(auto it:strs){
+                string ans="";
+                string ele=it;
+                int len = min(final_ans.length(), it.length());
+                for(int i=0;i<len;i++){
+                    if(final_ans[i]==it[i]){
+                        ans+=it[i];
+                    }else{
+                        
+                        break;
+                    }
+                }
+                final_ans=ans;
+            }
+            return final_ans;
+        }
+    };
