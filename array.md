@@ -44,7 +44,7 @@
         }
     };
 
-### Valid Anagram
+### 3. Valid Anagram
 
 #### Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 
@@ -72,7 +72,7 @@
         }
     };
 
-### Two Sum
+### 4.Two Sum
 
 #### Given an array of integers nums and an integer target, return the indices i and j such that nums[i] + nums[j] == target and i != j.
 
