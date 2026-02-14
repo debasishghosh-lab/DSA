@@ -223,3 +223,42 @@
             return majority;
         }
     };
+
+### 8.Design HashSet
+#### Design a HashSet without using any built-in hash table libraries.
+
+#### Implement MyHashSet class:
+
+- void add(key) Inserts the value key into the HashSet.
+- bool contains(key) Returns whether the value key exists in the HashSet or not.
+- void remove(key) Removes the value key in the HashSet. If key does not exist in the HashSet, do nothing.
+
+#### code:
+'''cpp
+
+    class MyHashSet {
+    vector<bool>set;
+    public:
+        MyHashSet() {
+            set.resize(1000001, false);
+        }
+        
+        void add(int key) {
+        set[key]=true;
+        }
+        
+        void remove(int key) {
+        set[key]=false;
+        }
+        
+        bool contains(int key) {
+            
+            if(set[key]==true)
+                return true;
+            
+        
+            return false;
+        }
+        
+    };
+
