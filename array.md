@@ -380,3 +380,42 @@
             }
         }
     };
+
+### 12.Top K Frequent Elements
+#### Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+
+#### code:
+'''cpp
+    
+    class Solution {
+    public:
+        vector<int> topKFrequent(vector<int>& nums, int k) {
+
+            unordered_map<int,int> freq;
+
+            for(auto ele : nums) {
+                freq[ele]++;
+            }
+
+            vector<vector<int>> bucket(nums.size() + 1);
+
+            for(auto it : freq) {
+                bucket[it.second].push_back(it.first);
+            }
+
+            vector<int> result;
+
+            for(int i = bucket.size() - 1; i >= 0; i--) {
+
+                for(auto num : bucket[i]) {
+
+                    result.push_back(num);
+
+                    if(result.size() == k)
+                        return result;
+                }
+            }
+
+            return result; 
+        }
+    };
