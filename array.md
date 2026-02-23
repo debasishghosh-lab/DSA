@@ -419,3 +419,67 @@
             return result; 
         }
     };
+
+### 13. Encode and Decode Strings
+#### Design an algorithm to encode a list of strings to a string. The encoded string is then sent over the network and is decoded back to the original list of strings.
+
+#### Example 1:
+
+- Input: dummy_input = ["Hello","World"]
+
+- Output: ["Hello","World"]
+
+#### Explanation:
+- Machine 1:
+- Codec encoder = new Codec();
+- String msg = encoder.encode(strs);
+- Machine 1 ---msg---> Machine 2
+
+- Machine 2:
+- Codec decoder = new Codec();
+- String[] strs = decoder.decode(msg);
+
+'''cpp
+
+    class Solution {
+    public:
+
+        
+        string encode(vector<string>& strs) {
+            string encoded = "";
+
+            for (auto str : strs) {
+                encoded += to_string(str.length()) + "#" + str;
+            }
+
+            return encoded;
+        }
+
+        
+        vector<string> decode(string s) {
+            vector<string> result;
+            int i = 0;
+            int n = s.length();
+
+            while (i < n) {
+
+                
+                int j = i;
+                while (s[j] != '#') {
+                    j++;
+                }
+
+                
+                int len = stoi(s.substr(i, j - i));
+
+            
+                string decoded = s.substr(j + 1, len);
+                result.push_back(decoded);
+
+            
+                i = j + 1 + len;
+            }
+
+            return result;
+        }
+    };
